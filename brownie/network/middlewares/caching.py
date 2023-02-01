@@ -183,6 +183,7 @@ class RequestCachingMiddleware(BrownieMiddlewareABC):
                 time.sleep(1)
 
     def process_request(self, make_request: Callable, method: str, params: List) -> Dict:
+        print(make_request, method, params)
         if method in (
             # caching any of these means we die of recursion death so let's not do that
             "eth_getFilterChanges",
